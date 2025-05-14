@@ -1,0 +1,4 @@
+# ignore any artifacts from running this tool
+pagerduty_export*
+*.zip
+*.tgz
