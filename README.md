@@ -26,6 +26,8 @@ After running, the script creates a `pagerduty_export/` folder containing:
 | `schedules.csv` | On-call schedules with layers and user counts. |
 | `escalation_policies.csv` | Escalation Policies with their linked users and schedules. |
 | `services.csv` | Services with their alert integrations and linked Escalation Policies. |
+| `integration_types.csv` | Summary stats of the integration types used across all services. |
+| `integration_details.csv` | Integrations with their type, vendor, and associated service ids. |
 
 The resulting set of `.csv` files can be reviewed by you, before sharing with us directly.
 
@@ -58,13 +60,13 @@ Anonymous mode **keeps integration names intact** so we can still understand wha
 ### Step 2: Run the script
 
 ```bash
-python3 resource-discovery.py --token YOUR_PD_API_TOKEN
+python3 run.py --token YOUR_PD_API_TOKEN
 ```
 
 To anonymise your export:
 
 ```bash
-python3 resource-discovery.py --token YOUR_PD_API_TOKEN --anonymise
+python3 run.py --token YOUR_PD_API_TOKEN --anonymise
 ```
 
 ## Sharing with us
@@ -72,7 +74,7 @@ python3 resource-discovery.py --token YOUR_PD_API_TOKEN --anonymise
 Once you’ve run the script:
 
 1. Review the contents of the `.csv` files to ensure you’re happy with the data we’ve pulled.
-2. Send the contents of the `pagerduty_export/` folder back to us. 
+2. Send the contents of the `pagerduty_export_YYYYmmdd_HHMM/` folder back to us. 
 3. We’ll review the data and share back a detailed migration plan tailored to your setup
 
 This process helps us get ahead of any custom configurations or edge cases, and ensures your switch to incident.io is smooth, fast, and well supported.# pd-resource-discovery
